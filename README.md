@@ -44,6 +44,12 @@ A simple academic assistant web app built with React, Vite, Node.js, Express, an
 
 6. Open the local URL Vite prints in the terminal, usually `http://localhost:5173`.
 
+## GitHub Pages deployment
+
+GitHub Pages hosts the Vite frontend only; it does not run the Express server or protect a Gemini API key. The included `.github/workflows/deploy-pages.yml` deploys the frontend automatically after each push to `main`.
+
+To enable AI requests on the Pages site, deploy the `server/` application to a server host and add a repository variable named `VITE_API_BASE_URL` containing that public API URL. Do not put `GEMINI_API_KEY` in frontend code or GitHub Pages variables.
+
 ## How it works
 
 1. React sends the selected task and text to `POST /api/ai/ask`.

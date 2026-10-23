@@ -46,7 +46,8 @@ export default function App() {
     setAnswer("");
     setCopied(false);
     try {
-      const response = await fetch("/api/ai/ask", {
+      const apiBaseUrl = import.meta.env.VITE_API_BASE_URL || "";
+      const response = await fetch(`${apiBaseUrl}/api/ai/ask`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ task, text: value.trim() })
